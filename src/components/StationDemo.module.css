@@ -1,0 +1,158 @@
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  padding: clamp(24px, 4.5vw, 64px);
+}
+
+.question {
+  font-size: var(--fs-h3);
+  font-weight: var(--weight-label);
+  line-height: 1.2;
+}
+
+.lines {
+  list-style: none;
+  padding: 0;
+  margin-top: clamp(24px, 3vw, 40px);
+  display: grid;
+  gap: var(--space-2);
+}
+
+/* Ruled like the paper the student writes on. */
+.line {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding-block: var(--space-3);
+  border-bottom: 1px solid var(--line);
+  font-size: clamp(1.375rem, 1.2rem + 0.9vw, 1.75rem);
+  font-weight: var(--weight-label);
+  line-height: 1.3;
+}
+
+.eq {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.tick,
+.dot {
+  flex: none;
+  width: 1.15em;
+  height: 1.15em;
+  overflow: visible;
+}
+
+.tick path {
+  fill: none;
+  stroke: var(--progress);
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+.scribble {
+  fill: none;
+  stroke: var(--dersion-white); /* mask luminance: fully shown */
+  stroke-width: 26;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+.hint {
+  margin-top: clamp(24px, 3vw, 40px);
+  max-width: 34ch;
+  font-size: var(--fs-lead);
+  line-height: 1.5;
+}
+
+/* Armed: JS has reset the card and waits for it to scroll in. */
+.card[data-state="armed"] .eq {
+  clip-path: inset(0 100% 0 0);
+}
+
+.card[data-state="armed"] .tick path,
+.card[data-state="armed"] .scribble {
+  stroke-dashoffset: 1;
+}
+
+.card[data-state="armed"] .hint {
+  opacity: 0;
+}
+
+.card[data-state="armed"] .dotImage,
+.card[data-state="playing"] .dotImage {
+  mask: url(#station-scribble);
+}
+
+/* Playing: write line 1, tick it, write line 2, fill the dot by hand, then the hint. */
+.card[data-state="playing"] [data-part="eq1"] {
+  animation: write 520ms var(--ease-in-out-sine) 150ms both;
+}
+
+.card[data-state="playing"] .tick path {
+  animation: draw 380ms var(--ease-out-quart) 750ms both;
+}
+
+.card[data-state="playing"] [data-part="eq2"] {
+  animation: write 520ms var(--ease-in-out-sine) 1250ms both;
+}
+
+.card[data-state="playing"] .scribble {
+  animation: draw 720ms var(--ease-in-out-sine) 1900ms both;
+}
+
+.card[data-state="playing"] .hint {
+  animation: rise 640ms var(--ease-out-expo) 2750ms both;
+}
+
+@keyframes write {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card[data-state] .eq,
+  .card[data-state] .hint {
+    animation: none;
+    clip-path: none;
+    opacity: 1;
+  }
+  .card[data-state] .tick path,
+  .card[data-state] .scribble {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .card[data-state] .dotImage {
+    mask: none;
+  }
+}
