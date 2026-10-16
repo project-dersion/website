@@ -3,6 +3,7 @@ import { Lexend } from "next/font/google";
 import "@/brand/tokens.css";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 // Self-hosted at build time by next/font: no requests to Google at runtime.
 const lexend = Lexend({
@@ -68,6 +69,7 @@ export default function RootLayout({
   return (
     <>
       <Analytics />
+      <SpeedInsights />
       <html lang="tr" className={lexend.variable}>
         <body>{children}</body>
       </html>
