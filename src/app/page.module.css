@@ -75,7 +75,7 @@
 
 .buttonPrimary {
   background: var(--text);
-  color: var(--bg);
+  color: var(--site-page);
 }
 
 .buttonPrimary:hover {
@@ -182,10 +182,16 @@
 /* ---------- 2. Station demo ---------- */
 
 .demo {
-  padding-block: 0 var(--section-space);
+  background: var(--site-band);
+  padding-block: var(--section-space);
+}
+
+.demoTitle {
+  margin-bottom: clamp(32px, 4vw, 56px);
 }
 
 @media (min-width: 900px) {
+  .demoTitle,
   .demoCard {
     grid-column: 2 / 10;
   }
@@ -195,7 +201,6 @@
 
 .steps {
   padding-block: var(--section-space);
-  border-top: 1px solid var(--line);
 }
 
 .stepList {
@@ -236,7 +241,13 @@
 /* ---------- 4–5. Owners and students ---------- */
 
 .audiences {
-  padding-block: 0 var(--section-space);
+  background: var(--site-band);
+  padding-block: var(--section-space);
+}
+
+/* Two equal panels: same top, same height (grid rows stretch). */
+.audiences .grid {
+  row-gap: var(--column-gap);
 }
 
 .owners,
@@ -246,35 +257,25 @@
   gap: var(--space-6);
   padding: clamp(32px, 5vw, 72px);
   border-radius: var(--radius-card);
-}
-
-.owners {
   background: var(--calm);
-}
-
-.students {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  margin-top: var(--column-gap);
 }
 
 @media (min-width: 900px) {
   .owners {
-    grid-column: 1 / 8;
+    grid-column: 1 / 7;
   }
 
   .students {
-    grid-column: 8 / -1;
-    margin-top: clamp(64px, 9vw, 144px);
+    grid-column: 7 / -1;
   }
 }
 
 /* ---------- 6. Closing band ---------- */
 
 .band {
-  background: var(--band);
-  color: var(--on-band);
-  --focus-ring: var(--on-band);
+  background: var(--closing);
+  color: var(--on-closing);
+  --focus-ring: var(--on-closing);
   padding-block: clamp(80px, 10vw, 152px);
 }
 

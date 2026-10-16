@@ -66,9 +66,10 @@ export function StationDemo() {
           </svg>
         </li>
       </ol>
-      <p className={s.hint} data-part="hint">
-        İlk adım doğru. İkinci satıra bakalım: 6 karşıya geçince işareti ne olur?
-      </p>
+      <div className={s.hint} data-part="hint">
+        <p className={s.speaker}>Dersion</p>
+        <p>İlk adım doğru. İkinci satıra bakalım: 6 karşıya geçince işareti ne olur?</p>
+      </div>
     </div>
   );
 }

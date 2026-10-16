@@ -5,14 +5,14 @@ import { StationDemo } from "@/components/StationDemo";
 import s from "./page.module.css";
 
 const STEPS = [
-  { title: "Kâğıdını göster.", body: "Soruyu kâğıtta çöz. Dersion çözümüne bakar." },
+  { title: "Ders başlar.", body: "Öğrenci istasyona oturur; dersi Dersion açar ve yönetir." },
   {
-    title: "Takıldığın adımı bulur.",
-    body: "Sonuca değil yola bakar. Takıldığın adım noktayla işaretlenir.",
+    title: "Takıldığı yeri fark eder.",
+    body: "Öğrenci çalışırken Dersion takip eder. Takıldığı adımı, öğrenci sormadan görür.",
   },
   {
-    title: "Sadece orayı anlatır.",
-    body: "Bir ipucu, bir soru, gerekirse kısa bir anlatım. Sonra yeniden bakar.",
+    title: "Oradan anlatır.",
+    body: "O adımı anlatır, sonra öğrencinin yeniden denemesine bakar. Cevabı vermez.",
   },
 ];
 
@@ -33,8 +33,9 @@ export default function Home() {
                 <span>başlar.</span>
               </h1>
               <p className={s.lead}>
-                Dersion, dershanelerde duran bir çalışma istasyonu: öğrencinin kâğıttaki çözümüne bakar,
-                takıldığı adımı bulur ve sadece o adımı anlatır.
+                Dersion, dershanede birebir ders yürüten bir istasyon. Öğrencinin soru sorması ya da bir
+                şey göstermesi gerekmez: dersi Dersion yönetir, takıldığı yeri kendisi fark eder ve oradan
+                anlatır.
               </p>
               <div className={s.actions}>
                 <a className={s.buttonPrimary} href="#iletisim">
@@ -48,8 +49,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section className={s.demo}>
+        <section className={s.demo} aria-labelledby="demo-baslik">
           <div className={`${s.wrap} ${s.grid}`}>
+            <h2 id="demo-baslik" className={`${s.h2} ${s.demoTitle}`}>
+              Sormadan fark eder.
+            </h2>
             <div className={s.demoCard}>
               <StationDemo />
             </div>
@@ -78,14 +82,17 @@ export default function Home() {
         <section className={s.audiences}>
           <div className={`${s.wrap} ${s.grid}`}>
             <article className={s.owners}>
-              <h2 className={s.h2}>Her öğrenciye birebir çalışma.</h2>
+              <h2 className={s.h2}>Her öğrenciye birebir ders.</h2>
               <p className={s.lead}>
-                Kurumunuzda duran bir istasyon. Her öğrenci kendi hızında, kendi adımında çalışır.
+                Dersi Dersion yürütür. Kurumunuzda duran bir istasyonla her öğrenci kendi hızında, kendi
+                adımında ilerler.
               </p>
             </article>
             <article className={s.students}>
               <h2 className={s.h2}>Cevabı değil, adımı verir.</h2>
-              <p className={s.lead}>Karalamana bakar, takıldığın adımı bulur ve sadece orayı anlatır.</p>
+              <p className={s.lead}>
+                Sormana gerek yok. Dersion takıldığın yeri kendisi fark eder ve oradan anlatır.
+              </p>
             </article>
           </div>
         </section>
@@ -110,12 +117,8 @@ export default function Home() {
               Kurumunuza getirin
             </h2>
             <div className={s.contactBody}>
-              <p className={s.body}>
-                Dersion, dershanelerde duran bir çalışma istasyonu. Öğrenci soruyu kâğıtta çözer; Dersion
-                çözüme bakar, takıldığı adımı bulur ve sadece o adımı anlatır. Cevabı vermez: bir ipucu,
-                bir soru, gerekirse kısa bir anlatım. Amaç, sınav günü doğruyu öğrencinin kendisinin
-                işaretlemesi. Samsun&apos;da geliştiriliyor.
-              </p>
+              {/* Placeholder until brand@fb16cc9 (marketing/messages.md, new boilerplate) is available. */}
+              <p className={s.body}>[BOILERPLATE: messages.md, brand@fb16cc9]</p>
               <p className={s.email}>[İLETİŞİM E-POSTASI]@dersion.app</p>
             </div>
           </div>
