@@ -13,7 +13,7 @@ rmSync(out, { recursive: true, force: true });
 mkdirSync(out, { recursive: true });
 
 const jobs = [
-  // Hero dot: shown at up to ~640 CSS px. 480 covers 1x phones; 1000 (the master size) covers the rest.
+  // Hero dot: shown at up to ~860 CSS px. 480 covers 1x phones; 1000 (the master size) covers the rest.
   ...[480, 1000].flatMap((w) => [
     { from: "dersion-dot-1000.png", to: `dot-${w}.avif`, width: w },
     { from: "dersion-dot-1000.png", to: `dot-${w}.webp`, width: w },
