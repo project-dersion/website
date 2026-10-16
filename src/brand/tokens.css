@@ -1,0 +1,80 @@
+/* Dersion design tokens v1 (2026-10-16). Generated from tokens.json by hand; keep the two in step.
+   Usage: <html lang="tr">, then @import this file and the Lexend stylesheet:
+   https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&display=swap */
+
+:root {
+  /* palette */
+  --dersion-derin: #12302C;
+  --dersion-yaprak: #3F7A5E;
+  --dersion-adacayi: #DCE6DE;
+  --dersion-sis: #F3F5F1;
+  --dersion-bal: #CC8A22;   /* the dot, the marked step, the one key number; never text on light */
+  --dersion-tas: #5E6B67;
+  --dersion-white: #FFFFFF;
+
+  /* theme: light */
+  --bg: var(--dersion-sis);
+  --surface: var(--dersion-white);
+  --calm: var(--dersion-adacayi);
+  --text: var(--dersion-derin);
+  --muted: var(--dersion-tas);
+  --progress: var(--dersion-yaprak);
+  --point: var(--dersion-bal);
+  --line: #C9D6CC;
+
+  /* type */
+  --font: 'Lexend', 'Segoe UI', system-ui, sans-serif;
+  --weight-body: 400;
+  --weight-label: 500;
+  --weight-strong: 600;
+  --size-display: 84px;
+  --size-h1: 56px;
+  --size-h2: 40px;
+  --size-h3: 28px;
+  --size-lead: 21px;
+  --size-body: 18px;
+  --size-small: 16px;
+  --size-label: 14px;
+  --tracking-headline: -0.02em;
+  --tracking-label: 0.15em;
+  --tracking-wordmark: 0.24em;
+
+  /* shape and space */
+  --radius-small: 6px;
+  --radius-card: 12px;
+  --radius-pill: 999px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: var(--dersion-derin);
+    --surface: #1A3D38;
+    --calm: #24504A;
+    --text: var(--dersion-sis);
+    --muted: #A9B8B2;
+    --progress: #6FAF8C;
+    --point: var(--dersion-bal);
+    --line: #2A4F49;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: var(--dersion-derin);
+  --surface: #1A3D38;
+  --calm: #24504A;
+  --text: var(--dersion-sis);
+  --muted: #A9B8B2;
+  --progress: #6FAF8C;
+  --point: var(--dersion-bal);
+  --line: #2A4F49;
+  color-scheme: dark;
+}
