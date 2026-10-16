@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Lexend } from "next/font/google";
 import "@/brand/tokens.css";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 // Self-hosted at build time by next/font: no requests to Google at runtime.
 const lexend = Lexend({
@@ -38,19 +39,38 @@ export const metadata: Metadata = {
     siteName: "Dersion",
     locale: "tr_TR",
     type: "website",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Takıldığın noktadan başlar." }],
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Takıldığın noktadan başlar.",
+      },
+    ],
   },
-  twitter: { card: "summary_large_image", title, description, images: ["/og.png"] },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/og.png"],
+  },
 };
 
 export const viewport: Viewport = {
   colorScheme: "light dark",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="tr" className={lexend.variable}>
-      <body>{children}</body>
-    </html>
+    <>
+      <Analytics />
+      <html lang="tr" className={lexend.variable}>
+        <body>{children}</body>
+      </html>
+    </>
   );
 }
