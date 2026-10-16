@@ -1,35 +1,28 @@
 // Raster exports of the brand logo files (see scripts/build-images.mjs).
-// The light version is for light backgrounds; the dark version for dark ones.
-const DARK = "(prefers-color-scheme: dark)";
+// The site is light only, so these are the light files; the dark files are for the Derin band alone.
 
 export function Wordmark({ className }: { className?: string }) {
   return (
-    <picture>
-      <source media={DARK} srcSet="/brand/derived/wordmark-dark-320.webp" />
-      <img
-        className={className}
-        src="/brand/derived/wordmark-light-320.webp"
-        width={320}
-        height={75}
-        alt="Dersion"
-      />
-    </picture>
+    <img
+      className={className}
+      src="/brand/derived/wordmark-light-320.webp"
+      width={320}
+      height={75}
+      alt="Dersion"
+    />
   );
 }
 
 export function HorizontalLogo({ className, lazy }: { className?: string; lazy?: boolean }) {
   return (
-    <picture>
-      <source media={DARK} srcSet="/brand/derived/logo-horizontal-dark-360.webp" />
-      <img
-        className={className}
-        src="/brand/derived/logo-horizontal-light-360.webp"
-        width={360}
-        height={105}
-        alt="Dersion"
-        loading={lazy ? "lazy" : undefined}
-      />
-    </picture>
+    <img
+      className={className}
+      src="/brand/derived/logo-horizontal-light-360.webp"
+      width={360}
+      height={105}
+      alt="Dersion"
+      loading={lazy ? "lazy" : undefined}
+    />
   );
 }
 

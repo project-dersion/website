@@ -22,11 +22,9 @@ const jobs = [
   // The marked step in the demo (~30 CSS px) and the filled answer-sheet circle (~84 CSS px).
   { from: "dersion-dot-small-1000.png", to: "dot-small-96.webp", width: 96 },
   { from: "dersion-dot-small-1000.png", to: "dot-small-160.webp", width: 160 },
-  // Hero wordmark (~150 CSS px) and footer horizontal logo (~170 CSS px), at 2x.
+  // Hero wordmark (~150 CSS px) and footer horizontal logo (~170 CSS px), at 2x. Light only.
   { from: "dersion-wordmark-light.png", to: "wordmark-light-320.webp", width: 320 },
-  { from: "dersion-wordmark-dark.png", to: "wordmark-dark-320.webp", width: 320 },
   { from: "dersion-logo-horizontal-light.png", to: "logo-horizontal-light-360.webp", width: 360 },
-  { from: "dersion-logo-horizontal-dark.png", to: "logo-horizontal-dark-360.webp", width: 360 },
 ];
 
 for (const job of jobs) {

@@ -22,7 +22,7 @@ function siteUrl() {
 
 const title = "Dersion · Takıldığın noktadan başlar.";
 const description =
-  "Dersion, dershanelerde duran bir çalışma istasyonu: öğrencinin kâğıttaki çözümüne bakar, takıldığı adımı bulur ve sadece o adımı anlatır.";
+  "Dersion, dershanede birebir ders yürüten bir istasyon. Öğrencinin soru sorması ya da bir şey göstermesi gerekmez: dersi Dersion yönetir, takıldığı yeri kendisi fark eder ve oradan anlatır.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  colorScheme: "light dark",
+  colorScheme: "light",
 };
 
 export default function RootLayout({
@@ -70,7 +70,8 @@ export default function RootLayout({
     <>
       <Analytics />
       <SpeedInsights />
-      <html lang="tr" className={lexend.variable}>
+      {/* Light only: data-theme pins tokens.css to its light theme whatever the system setting. */}
+      <html lang="tr" data-theme="light" className={lexend.variable}>
         <body>{children}</body>
       </html>
     </>

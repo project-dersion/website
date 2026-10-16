@@ -16,19 +16,14 @@
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
   --ease-in-out-sine: cubic-bezier(0.37, 0, 0.63, 1);
 
-  /* The closing band: Derin on the light page; the dark surface when the page itself is Derin. */
-  --band: var(--dersion-derin);
-  --on-band: var(--dersion-sis);
-}
+  /* Light only. Page white, alternating sections Sis, panels Ada çayı; only the closing band is Derin.
+     --page and --band fall back to the palette until tokens.css defines them. */
+  --site-page: var(--page, var(--dersion-white));
+  --site-band: var(--band, var(--dersion-sis));
+  --closing: var(--dersion-derin);
+  --on-closing: var(--dersion-sis);
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --band: var(--surface);
-  }
-}
-
-:root[data-theme="dark"] {
-  --band: var(--surface);
+  color-scheme: light;
 }
 
 *,
@@ -49,7 +44,7 @@ html {
 
 body {
   margin: 0;
-  background: var(--bg);
+  background: var(--site-page);
   color: var(--text);
   font-family: var(--font-site);
   font-size: var(--fs-body);

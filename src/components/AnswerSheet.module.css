@@ -9,9 +9,9 @@
   place-items: center;
   width: clamp(44px, 5.2vw, 60px);
   aspect-ratio: 1;
-  border: 2px solid var(--on-band);
+  border: 2px solid var(--on-closing);
   border-radius: 50%;
-  color: var(--on-band);
+  color: var(--on-closing);
   font-size: clamp(1rem, 0.9rem + 0.4vw, 1.25rem);
   font-weight: var(--weight-label);
   line-height: 1;
