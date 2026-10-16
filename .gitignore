@@ -1,0 +1,18 @@
+# Design reference material: kept locally, never committed or built
+/docs/top-design/
+
+# dependencies
+/node_modules
+
+# Next.js
+/.next/
+/out/
+next-env.d.ts
+*.tsbuildinfo
+
+# misc
+.DS_Store
+*.log
+.env*
+.vercel
+/lighthouse/
