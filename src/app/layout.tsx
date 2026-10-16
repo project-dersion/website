@@ -8,6 +8,8 @@ const lexend = Lexend({
   subsets: ["latin", "latin-ext"],
   display: "swap",
   variable: "--font-lexend",
+  // Not preloaded: the inlined @font-face rules find them early, and the hero dot (LCP) gets the bandwidth first.
+  preload: false,
 });
 
 function siteUrl() {

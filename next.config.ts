@@ -5,6 +5,8 @@ const nextConfig: NextConfig = {
   output: "export",
   images: { unoptimized: true },
   poweredByHeader: false,
+  // The stylesheet is a few KB: inline it so it doesn't block the first paint.
+  experimental: { inlineCss: true },
 };
 
 export default nextConfig;

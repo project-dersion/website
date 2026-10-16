@@ -13,12 +13,14 @@ rmSync(out, { recursive: true, force: true });
 mkdirSync(out, { recursive: true });
 
 const jobs = [
-  // Hero dot: shown at up to ~860 CSS px. 480 covers 1x phones; 1000 (the master size) covers the rest.
-  ...[480, 1000].flatMap((w) => [
+  // Hero dot: ~280 CSS px on phones, up to ~860 on desktop. 480 and 600 cover 1x-2x phones;
+  // 1000 (the master size) covers the rest. The crayon grain makes in-between sizes heavy.
+  ...[480, 600, 1000].flatMap((w) => [
     { from: "dersion-dot-1000.png", to: `dot-${w}.avif`, width: w },
     { from: "dersion-dot-1000.png", to: `dot-${w}.webp`, width: w },
   ]),
-  // The marked step in the demo and the filled answer-sheet circle (<= 56 CSS px).
+  // The marked step in the demo (~30 CSS px) and the filled answer-sheet circle (~84 CSS px).
+  { from: "dersion-dot-small-1000.png", to: "dot-small-96.webp", width: 96 },
   { from: "dersion-dot-small-1000.png", to: "dot-small-160.webp", width: 160 },
   // Hero wordmark (~150 CSS px) and footer horizontal logo (~170 CSS px), at 2x.
   { from: "dersion-wordmark-light.png", to: "wordmark-light-320.webp", width: 320 },

@@ -17,7 +17,7 @@ export function Wordmark({ className }: { className?: string }) {
   );
 }
 
-export function HorizontalLogo({ className }: { className?: string }) {
+export function HorizontalLogo({ className, lazy }: { className?: string; lazy?: boolean }) {
   return (
     <picture>
       <source media={DARK} srcSet="/brand/derived/logo-horizontal-dark-360.webp" />
@@ -27,7 +27,7 @@ export function HorizontalLogo({ className }: { className?: string }) {
         width={360}
         height={105}
         alt="Dersion"
-        loading="lazy"
+        loading={lazy ? "lazy" : undefined}
       />
     </picture>
   );
@@ -41,13 +41,13 @@ export function HeroDot({ className }: { className?: string }) {
     <picture>
       <source
         type="image/avif"
-        srcSet="/brand/derived/dot-480.avif 480w, /brand/derived/dot-1000.avif 1000w"
+        srcSet="/brand/derived/dot-480.avif 480w, /brand/derived/dot-600.avif 600w, /brand/derived/dot-1000.avif 1000w"
         sizes={HERO_DOT_SIZES}
       />
       <img
         className={className}
         src="/brand/derived/dot-1000.webp"
-        srcSet="/brand/derived/dot-480.webp 480w, /brand/derived/dot-1000.webp 1000w"
+        srcSet="/brand/derived/dot-480.webp 480w, /brand/derived/dot-600.webp 600w, /brand/derived/dot-1000.webp 1000w"
         sizes={HERO_DOT_SIZES}
         width={1000}
         height={1000}

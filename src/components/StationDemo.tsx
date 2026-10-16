@@ -62,7 +62,7 @@ export function StationDemo() {
                 />
               </mask>
             </defs>
-            <image className={s.dotImage} href="/brand/derived/dot-small-160.webp" width="100" height="100" />
+            <image className={s.dotImage} href="/brand/derived/dot-small-96.webp" width="100" height="100" />
           </svg>
         </li>
       </ol>
